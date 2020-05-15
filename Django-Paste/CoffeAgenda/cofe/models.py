@@ -13,3 +13,6 @@ class Envento(models.Model):
 
     def str(self):
         return self.titulo
+        
+    def get_date_event(self):
+        return self.date_event.strftime('%d/%m/%Y %H:%M')
