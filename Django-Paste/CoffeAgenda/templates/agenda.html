@@ -3,9 +3,17 @@
 {% block content %}
         <h2>Coffe Agenda</h2>
 
+        <a href="MakeCoffe"><button>Fazer um novo café</button></a>
+        {% for evento in eventos %}
+        <p>{{evento.usuario}} você tem esse café:</p>
         <ul>
-            {% for evento in eventos %}
-            <li>{{ evento.titulo}} - {{ evento.get_date_event}}</li>
-            {%endfor%}
+            <li>
+                    <div style={% if evento.get_atrasados %} "color:red" {% endif %}>
+                            {{ evento.titulo}} as {{ evento.get_date_event}}
+                            (<a href="MakeCoffe/?id={{ evento.id }}">Editar o Café</a>/<a href="delete/{{ evento.id }}">Apagar o seu café</a>)
+                    </div>
+            </li>
         </ul>
+        <p><i>{{ evento.descrição }}</i></p>
+        {%endfor%}
 {% endblock %}

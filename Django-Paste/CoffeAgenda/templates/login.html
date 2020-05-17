@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Coffe</title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        
+        <form action="submit" method="POST">{% csrf_token %}
+            <div aling="center">
+                <label>Usuario: </label>
+                    <input type="text" name="username">
+                <label>Senha:</label>
+                    <input type="password" name="password">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+
+        {% for messages in messages %}
+            <div aling="center">
+                <strong>Olha aqui,</strong>{{messages}}
+            </div>
+        {% endfor %}
+    </body>
+</html>

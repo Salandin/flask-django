@@ -1,0 +1,21 @@
+{% extends "model-pages.html" %}
+
+{% block content %}
+
+    <h2>Qual o novo café?</h2>
+
+    <form action="submit" method="post">{% csrf_token %}
+        <input type="number" name="id_evento" value="{{evento.id}}" hidden>
+        <label>Titulo:</label><br>
+            <input type="text" name="titulo" size="23" value="{{ evento.titulo }}"><br>
+        <label>Data do evento:</label><br>
+            <input type="datetime-local" name="date_event" value="{{ evento.get_date_event_input }}"><br>
+        <label>Descrição:</label><br>
+            <textarea name="descrição">{{ evento.descrição }}</textarea><br>
+        <br><br>
+        <button type="submit">Fazer o café</button>
+        <a href="/">
+            <button type="button">Cancelar o café</button>
+        </a>
+    </form>
+{% endblock %}
